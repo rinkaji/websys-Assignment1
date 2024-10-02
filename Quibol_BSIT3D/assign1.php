@@ -60,7 +60,7 @@
             if(empty($uURL)){
                 $error['url'] = "enter an url";
             }
-            elseif($uURL == "fb.com" || $uURL == "facebook.com"){
+            elseif(preg_match('/^(https\:\/\/)?(www\.)?(facebook\.com|fb\.com)+$/',$uURL)){
                 $_SESSION['url'] = $uURL;
             }
             else {
@@ -87,12 +87,6 @@
             else{
                 $error['password'] = "password must be: at least 8 characters, 1 uppercase and alphanumeric";
             }
-
-
-           
-            
-            
-
 
             // validate phone number
             
@@ -150,7 +144,7 @@
             }
             
             if(empty($error)){
-                echo "<script>alert('Registration Complete');</script>";
+                header("location: about.php");
             }
         }       
     ?>
@@ -169,11 +163,13 @@
         table{
             border:2px solid black;
             margin:auto;
+            background-color: rgb(211, 211, 211);
         }
         div{
         }
         textarea{
             height: 100px;
+            background-color: whitesmoke;
         }
         h3{
             text-align:center;
@@ -185,6 +181,7 @@
         }
         .textbox{
             width: 320px;
+            background-color: whitesmoke;
         }
         .nontextbox{
             width:220px;
@@ -197,6 +194,9 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+        }
+        body{
+            background-color: beige;
         }
     </style>
 </head>
@@ -278,11 +278,11 @@
                         <div class="nontextbox">
                             <label for="gender">Gender:</label>
                             <label> 
-                                <input type="radio" name="gender" value="male" >
+                                <input type="radio" name="gender" value="Male" >
                                 Male
                             </label>
                             <label> 
-                                <input type="radio" name="gender" value="female">
+                                <input type="radio" name="gender" value="Female">
                                 Female
                             </label>
                         </div>
@@ -362,12 +362,6 @@
         
          
         </table>
-        <DIV class="seconButton">
-            <br>
-            <form action="about.php" method="POST">
-                <input type="submit" value="Go to info page">
-            </form>
-        </DIV>   
     </div>
     
 
