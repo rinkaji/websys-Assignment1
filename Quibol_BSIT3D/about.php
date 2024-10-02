@@ -13,9 +13,16 @@
         table{
             margin:auto;
             border: 3px solid;
+            background-color: whitesmoke;
         }
         h2{
             text-align:center;
+        }
+        body{
+            background-color: beige;
+        }
+        div{
+            
         }
     </style>
 </head>
